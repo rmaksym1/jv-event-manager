@@ -19,7 +19,7 @@ public class EventManager {
 
     public void notifyEvent(Event event) {
         for (EventListener eventListener : listeners) {
-            CompletableFuture.runAsync(() -> eventListener.onEvent(event));
+            CompletableFuture.runAsync(() -> eventListener.onEvent(event), executor);
         }
     }
 
